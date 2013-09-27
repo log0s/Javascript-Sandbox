@@ -1,4 +1,4 @@
-//Take a string and returns that string in reversed order
+//Takes a string and returns that string in reversed order
 var stringReverse = function(text) {
     var reversed = '';
     
@@ -7,7 +7,7 @@ var stringReverse = function(text) {
     }
     
     return reversed;
-}
+};
 
 //Compares elements of an array with a set length and returns a list of all that are longer
 var stringCompare = function(fragments, length) {
@@ -19,7 +19,7 @@ var stringCompare = function(fragments, length) {
         }
         
     return matching;
-    }
+};
 
 //Returns a greeting based on the current time
 var greeting = function() {
@@ -35,7 +35,7 @@ var greeting = function() {
     else {
         return 'Good evening';
     }
-}
+};
 
 //Takes a monetary value and returns the bills/coins needed for that amount
 var cashRegister = function(amount) {
@@ -79,4 +79,39 @@ var cashRegister = function(amount) {
     }
     
     return sorted;
-}
+};
+
+//Converts elements of an array into objects and sorts them by year
+var movieSort = function(movies) {
+    var sorted = [];
+    
+    for (var i = 0; i < sorted.length; i++) {
+        var splitItem = movies[i].split(',');
+        var splitObject = {
+            'Title': splitItem[0],
+            'Year': splitItem[1],
+            'Votes': splitItem[2]
+        }
+        sorted.push(splitObject);
+    }
+    
+    function sortYear(a, b) {
+        if (a.Year === b.Year) {
+            return 0;
+        }
+        else if (a.Year > b.Year) {
+            return 1;
+        }
+        return -1;
+    }
+    
+    sorted.sort(sortYear);
+    
+    return sorted;
+};
+
+//Assign a variable to the output area
+var output = document.getElementById('outputArea');
+    
+//Testing all functions
+output.insertAdjacentHTML('beforeend', 'String Reverse Test:' + stringReverse('test'));
