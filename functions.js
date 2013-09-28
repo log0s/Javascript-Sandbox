@@ -1,8 +1,10 @@
 //Takes a string and returns that string in reversed order
-var stringReverse = function(text) {
+var stringReverse = function(text) 
+{
     var reversed = '';
     
-    for (var i = text.length - 1; i >= 0; i--) {
+    for (var i = text.length - 1; i >= 0; i--) 
+    {
         reversed += text[i];
     }
     
@@ -10,36 +12,46 @@ var stringReverse = function(text) {
 };
 
 //Compares elements of an array with a set length and returns a list of all that are longer
-var stringCompare = function(fragments, length) {
+var stringCompare = function(fragments, length) 
+{
     var matching = [];
     
-    for (var i = 0; i < fragments.length; i++) {
-        if (fragments[i].length > length) {
+    for (var i = 0; i < fragments.length; i++) 
+    {
+        if (fragments[i].length > length) 
+        {
             matching += fragments[i];
         }
+    }
         
     return matching;
 };
 
 //Returns a greeting based on the current time
-var greeting = function() {
+var greeting = function() 
+{
     var now = new Date();
     var nowHours = now.getHours() + 1;
     
-    if (nowHours >= 1 && nowHours < 12) {
+    if (nowHours >= 1 && nowHours < 12) 
+    {
         return 'Good morning';
     }
-    else if (nowHours >= 12 && nowHours < 6) {
+    else if (nowHours >= 12 && nowHours < 6) 
+    {
         return 'Good afternoon';
     }
-    else {
+    else 
+    {
         return 'Good evening';
     }
 };
 
 //Takes a monetary value and returns the bills/coins needed for that amount
-var cashRegister = function(amount) {
-    var sorted = {
+var cashRegister = function(amount) 
+{
+    var sorted = 
+    {
         'Fives': 0,
         'Ones': 0,
         'Quarters': 0,
@@ -48,32 +60,38 @@ var cashRegister = function(amount) {
         'Pennies': 0
     }
     
-    while (amount - 5 >= 0) {
+    while (amount - 5 >= 0) 
+    {
         amount -= 5;
         sorted.Fives++;
     }
     
-    while (amount - 1 >= 0) {
+    while (amount - 1 >= 0) 
+    {
         amount -= 1;
         sorted.Ones++;
     }
     
-    while (amount - 0.25 >= 0) {
+    while (amount - 0.25 >= 0) 
+    {
         amount -= 0.25;
         sorted.Quarters++;
     }
     
-    while (amount - 0.10 >= 0) {
+    while (amount - 0.10 >= 0) 
+    {
         amount -= 0.10;
         sorted.Dimes++;
     }
     
-    while (amount - 0.05 >= 0) {
+    while (amount - 0.05 >= 0) 
+    {
         amount -= 0.05;
         sorted.Nickels++;
     }
     
-    while (amount - 0.01 >= 0) {
+    while (amount - 0.01 >= 0) 
+    {
         amount -= 0.01;
         sorted.Pennies++;
     }
@@ -82,12 +100,15 @@ var cashRegister = function(amount) {
 };
 
 //Converts elements of an array into objects and sorts them by year
-var movieSort = function(movies) {
+var movieSort = function(movies) 
+{
     var sorted = [];
     
-    for (var i = 0; i < sorted.length; i++) {
+    for (var i = 0; i < sorted.length; i++) 
+    {
         var splitItem = movies[i].split(',');
-        var splitObject = {
+        var splitObject = 
+        {
             'Title': splitItem[0],
             'Year': splitItem[1],
             'Votes': splitItem[2]
@@ -95,15 +116,18 @@ var movieSort = function(movies) {
         sorted.push(splitObject);
     }
     
-    function sortYear(a, b) {
-        if (a.Year === b.Year) {
+    function sortYear(a, b)
+    {
+        if (a.Year === b.Year) 
+        {
             return 0;
         }
-        else if (a.Year > b.Year) {
+        else if (a.Year > b.Year) 
+        {
             return 1;
         }
         return -1;
-    }
+    };
     
     sorted.sort(sortYear);
     
@@ -114,4 +138,30 @@ var movieSort = function(movies) {
 var output = document.getElementById('outputArea');
     
 //Testing all functions
-output.insertAdjacentHTML('beforeend', 'String Reverse Test:' + stringReverse('test'));
+
+//stringReverse test
+output.insertAdjacentHTML('beforeend', 'String Reverse Test:' + stringReverse('test') + '<br />');
+
+//stringCompare test
+output.insertAdjacentHTML('beforeend', 'String Compare Test:' + stringCompare(['je', 'souis', 'le', 'fromage'], 3) + '<br />');
+
+//greeting test
+output.insertAdjacentHTML('beforeend', 'Greeting Test:' + greeting() + '<br />');
+
+//cashRegister test
+output.insertAdjacentHTML('beforeend', 'Cash Register Test:' + cashRegister(8.99) + '<br />');
+
+//movieSort test
+var items = [
+    'The Shawshank Redemption,1994,1043071',
+    'The Godfather,1972,732416',
+    'The Godfather: Part II,1974,474640',
+    'Pulp Fiction,1994,806431',
+    'The Dark Knight,2008,1017508',
+    '12 Angry Men,1957,255846',
+    'Schindler\'s List,1993,528900',
+    'The Lord of the Rings: The Return of the King,2003,738931',
+    'Fight Club,1999,791186',
+    'Star Wars: Episode V - The Empire Strikes Back,1980,503348'
+];
+output.insertAdjacentHTML('beforeend', 'Movie Sort Test:' + movieSort(items));
