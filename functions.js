@@ -153,7 +153,7 @@ output.insertAdjacentHTML('beforeend', '<span class="test">Greeting Test:</span>
 
 //cashRegister test
 var cash = cashRegister(8.99);
-output.insertAdjacentHTML('beforeend', '<span class="test">Cash Register Test:</span> ' + JSON.stringify(cash) + '<br />');
+output.insertAdjacentHTML('beforeend', '<span class="test">Cash Register Test:</span> ' + JSON.stringify(cash, null, 5) + '<br />');
 
 //movieSort test
 var items = [
@@ -169,4 +169,4 @@ var items = [
     'Star Wars: Episode V - The Empire Strikes Back,1980,503348'
 ];
 var itemSort = movieSort(items);
-output.insertAdjacentHTML('beforeend', '<span class="test">Movie Sort Test:</span> ' + JSON.stringify(itemSort));
+output.insertAdjacentHTML('beforeend', '<span class="test">Movie Sort Test:</span> ' + JSON.stringify(itemSort, null, 5));
