@@ -140,16 +140,18 @@ var output = document.getElementById('outputArea');
 //Testing all functions
 
 //stringReverse test
-output.insertAdjacentHTML('beforeend', 'String Reverse Test:' + stringReverse('test') + '<br />');
+output.insertAdjacentHTML('beforeend', 'String Reverse Test: ' + stringReverse('test') + '<br />');
 
 //stringCompare test
-output.insertAdjacentHTML('beforeend', 'String Compare Test:' + stringCompare(['je', 'souis', 'le', 'fromage'], 3) + '<br />');
+var badFrench = ['je', 'souis', 'le', 'fromage'];
+output.insertAdjacentHTML('beforeend', 'String Compare Test: ' + stringCompare(badFrench, 3) + '<br />');
 
 //greeting test
-output.insertAdjacentHTML('beforeend', 'Greeting Test:' + greeting() + '<br />');
+output.insertAdjacentHTML('beforeend', 'Greeting Test: ' + greeting() + '<br />');
 
 //cashRegister test
-output.insertAdjacentHTML('beforeend', 'Cash Register Test:' + cashRegister(8.99) + '<br />');
+var cash = cashRegister(8.99);
+output.insertAdjacentHTML('beforeend', 'Cash Register Test: ' + JSON.stringify(cash) + '<br />');
 
 //movieSort test
 var items = [
@@ -164,4 +166,5 @@ var items = [
     'Fight Club,1999,791186',
     'Star Wars: Episode V - The Empire Strikes Back,1980,503348'
 ];
-output.insertAdjacentHTML('beforeend', 'Movie Sort Test:' + movieSort(items));
+var itemSort = movieSort(items);
+output.insertAdjacentHTML('beforeend', 'Movie Sort Test: ' + JSON.stringify(itemSort));
