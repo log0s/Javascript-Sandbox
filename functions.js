@@ -104,7 +104,7 @@ var movieSort = function(movies)
 {
     var sorted = [];
     
-    for (var i = 0; i < sorted.length; i++) 
+    for (var i = 0; i < movies.length; i++) 
     {
         var splitItem = movies[i].split(',');
         var splitObject = 
