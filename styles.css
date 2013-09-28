@@ -4,8 +4,14 @@ h1 {
 
 #outputArea {
     border: 1px solid black;
+    font-size: 15px;
 }
 
 #wrapper {
     margin: 0 30% 0 30%;
+}
+
+.test {
+    font-weight: bold;
+    font-size: 18px;
 }

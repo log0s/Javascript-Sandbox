@@ -33,11 +33,11 @@ var greeting = function()
     var now = new Date();
     var nowHours = now.getHours() + 1;
     
-    if (nowHours >= 1 && nowHours < 12) 
+    if ((nowHours >= 1) && (nowHours < 12)) 
     {
         return 'Good morning';
     }
-    else if (nowHours >= 12 && nowHours < 6) 
+    else if ((nowHours >= 12) && (nowHours < 18)) 
     {
         return 'Good afternoon';
     }
@@ -140,18 +140,18 @@ var output = document.getElementById('outputArea');
 //Testing all functions
 
 //stringReverse test
-output.insertAdjacentHTML('beforeend', 'String Reverse Test: ' + stringReverse('test') + '<br />');
+output.insertAdjacentHTML('beforeend', '<span class="test">String Reverse Test:</span> ' + stringReverse('test') + '<br />');
 
 //stringCompare test
 var badFrench = ['je', 'souis', 'le', 'fromage'];
-output.insertAdjacentHTML('beforeend', 'String Compare Test: ' + stringCompare(badFrench, 3) + '<br />');
+output.insertAdjacentHTML('beforeend', '<span class="test">String Compare Test:</span> ' + stringCompare(badFrench, 3) + '<br />');
 
 //greeting test
-output.insertAdjacentHTML('beforeend', 'Greeting Test: ' + greeting() + '<br />');
+output.insertAdjacentHTML('beforeend', '<span class="test">Greeting Test:</span> ' + greeting() + '<br />');
 
 //cashRegister test
 var cash = cashRegister(8.99);
-output.insertAdjacentHTML('beforeend', 'Cash Register Test: ' + JSON.stringify(cash) + '<br />');
+output.insertAdjacentHTML('beforeend', '<span class="test">Cash Register Test:</span> ' + JSON.stringify(cash) + '<br />');
 
 //movieSort test
 var items = [
@@ -167,4 +167,4 @@ var items = [
     'Star Wars: Episode V - The Empire Strikes Back,1980,503348'
 ];
 var itemSort = movieSort(items);
-output.insertAdjacentHTML('beforeend', 'Movie Sort Test: ' + JSON.stringify(itemSort));
+output.insertAdjacentHTML('beforeend', '<span class="test">Movie Sort Test:</span> ' + JSON.stringify(itemSort));
