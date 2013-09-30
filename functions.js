@@ -43,13 +43,11 @@ var greeting = function()
     {
         return 'Good afternoon';
     }
-    else 
-    {
-        return 'Good evening';
-    }
+    return 'Good evening';
 };
 
-//Takes a monetary value and returns the bills/coins needed for that amount
+/* Takes a monetary value and returns the bills/coins needed for that amount
+    - Old version, replaced with cleaner version with less unnecessary repetition
 var cashRegister = function(amount) 
 {
     var sorted = 
@@ -99,6 +97,33 @@ var cashRegister = function(amount)
     }
     
     return sorted;
+}; */
+
+//Updated version of cashRegister function
+var cashRegister = function(amount) 
+{
+    var currency = 
+    {
+    'Fives': 0,
+    'Ones': 0,
+    'Quarters': 0,
+    'Dimes': 0,
+    'Nickels': 0,
+    'Pennies': 0
+    };
+    var currencyIndex = [ 'Fives', 'Ones', 'Quarters', 'Dimes', 'Nickels', 'Pennies' ];
+    var currencyAmount = [ 5, 1, 0.25, 0.10, 0.05, 0.01 ];
+    
+    for (var i = 0; i < currencyIndex.length; i++)
+    {
+        while (amount - currencyAmount[i] >= 0)
+        {
+            amount -= currencyAmount[i];
+            currency[currencyIndex[i]]++;
+        }
+    }
+    
+    return currency;
 };
 
 //Converts elements of an array into objects and sorts them by year
@@ -106,6 +131,7 @@ var movieSort = function(movies)
 {
     var sorted = [];
     
+    //Splits array elements based on commas and changes them into objects
     for (var i = 0; i < movies.length; i++) 
     {
         var splitItem = movies[i].split(',');
@@ -118,6 +144,7 @@ var movieSort = function(movies)
         sorted.push(splitObject);
     }
     
+    //Function to pass to .sort()
     function sortYear(a, b)
     {
         if (a.Year === b.Year) 
