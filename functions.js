@@ -102,24 +102,18 @@ var cashRegister = function(amount)
 //Updated version of cashRegister function
 var cashRegister = function(amount) 
 {
-    var change = 
-    {
-    'Fives': 0,
-    'Ones': 0,
-    'Quarters': 0,
-    'Dimes': 0,
-    'Nickels': 0,
-    'Pennies': 0
-    };
+    var change = { Fives: 0, Ones: 0, Quarters: 0, Dimes: 0, Nickels: 0, Pennies: 0};
     
-    var currencyIndex = [ ['Fives', 5], ['Ones', 1], ['Quarters', 0.25], ['Dimes', 0.10], ['Nickels', 0.05], ['Pennies', 0.01] ];
+    var currencyIndex = [ {Name: 'Fives', Value: 5}, {Name: 'Ones', Value: 1}, {Name: 'Quarters', Value: 0.25}, {Name: 'Dimes', Value: 0.10}, {Name: 'Nickels', Value: 0.05}, {Name: 'Pennies', Value: 0.01} ];
     
     for (var i = 0; i < currencyIndex.length; i++)
     {
-        while (amount - currencyIndex[i][1] >= 0)
+        var current = currencyIndex[i];
+        
+        while (amount - current.Value >= 0)
         {
-            amount -= currencyIndex[i][1];
-            change[currencyIndex[i][0]]++;
+            amount -= current.Value;
+            change[current.Name]++;
         }
     }
     
