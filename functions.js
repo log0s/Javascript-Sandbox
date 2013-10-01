@@ -15,14 +15,12 @@ var stringReverse = function(text)
 var stringCompare = function(fragments, length) 
 {
     var matching = [];
-    var matchingIndex = 0;
     
     for (var i = 0; i < fragments.length; i++) 
     {
         if (fragments[i].length > length) 
         {
-            matching[matchingIndex] = fragments[i];
-            matchingIndex++;
+            matching.push(fragments[i]);
         }
     }
         
