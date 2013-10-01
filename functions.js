@@ -100,7 +100,7 @@ var cashRegister = function(amount)
 //Updated version of cashRegister function
 var cashRegister = function(amount) 
 {
-    var currency = 
+    var change = 
     {
     'Fives': 0,
     'Ones': 0,
@@ -109,19 +109,19 @@ var cashRegister = function(amount)
     'Nickels': 0,
     'Pennies': 0
     };
-    var currencyIndex = [ 'Fives', 'Ones', 'Quarters', 'Dimes', 'Nickels', 'Pennies' ];
-    var currencyAmount = [ 5, 1, 0.25, 0.10, 0.05, 0.01 ];
+    
+    var currencyIndex = [ ['Fives', 5], ['Ones', 1], ['Quarters', 0.25], ['Dimes', 0.10], ['Nickels', 0.05], ['Pennies', 0.01] ];
     
     for (var i = 0; i < currencyIndex.length; i++)
     {
-        while (amount - currencyAmount[i] >= 0)
+        while (amount - currencyIndex[i][1] >= 0)
         {
-            amount -= currencyAmount[i];
-            currency[currencyIndex[i]]++;
+            amount -= currencyIndex[i][1];
+            change[currencyIndex[i][0]]++;
         }
     }
     
-    return currency;
+    return change;
 };
 
 //Converts elements of an array into objects and sorts them by year
