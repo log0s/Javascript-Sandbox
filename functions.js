@@ -131,21 +131,21 @@ var movieSort = function(movies)
         var splitItem = movies[i].split(',');
         var splitObject = 
         {
-            'Title': splitItem[0],
-            'Year': splitItem[1],
-            'Votes': splitItem[2]
+            Title: splitItem[0],
+            Year: parseInt(splitItem[1]),
+            Votes: parseInt(splitItem[2])
         }
         sorted.push(splitObject);
     }
     
     //Function to pass to .sort()
-    function sortYear(a, b)
+    function sortYear(movieA, movieB)
     {
-        if (a.Year === b.Year) 
+        if (movieA.Year === movieB.Year) 
         {
             return 0;
         }
-        else if (a.Year > b.Year) 
+        else if (movieA.Year > movieB.Year) 
         {
             return 1;
         }
