@@ -46,6 +46,7 @@ var greeting = function()
 
 /* Takes a monetary value and returns the bills/coins needed for that amount
     - Old version, replaced with cleaner version with less unnecessary repetition
+    
 var cashRegister = function(amount) 
 {
     var sorted = 
