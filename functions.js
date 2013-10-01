@@ -32,8 +32,7 @@ var stringCompare = function(fragments, length)
 //Returns a greeting based on the current time
 var greeting = function() 
 {
-    var now = new Date();
-    var nowHours = now.getHours() + 1;
+    var nowHours = (new Date).getHours() + 1;
     
     if ((nowHours >= 1) && (nowHours < 12)) 
     {
