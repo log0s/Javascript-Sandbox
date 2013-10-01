@@ -18,9 +18,11 @@ var stringCompare = function(fragments, length)
     
     for (var i = 0; i < fragments.length; i++) 
     {
-        if (fragments[i].length > length) 
+        var element = fragments[i];
+        
+        if (element.length > length) 
         {
-            matching.push(fragments[i]);
+            matching.push(element);
         }
     }
         
