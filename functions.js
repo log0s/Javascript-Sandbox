@@ -204,6 +204,8 @@ $(function()
     
     //Toggle selection
     $('#selectors').click(function(event) {
+        $('#selectors button').removeClass('btn-primary');
+        $(event.target).addClass('btn-primary');
         selected = event.target.id;
     });
     
