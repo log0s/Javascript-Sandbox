@@ -211,6 +211,7 @@ $(function()
     $('#execute').click(function() {
         input1 = $('#mainInput').val();
         input2 = $('#secondaryInput').val();
+        $('#mainInput, #secondaryInput').val('');
         
         switch(selected) {
                 case 'stringReverse': 
