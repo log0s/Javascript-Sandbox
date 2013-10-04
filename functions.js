@@ -197,20 +197,20 @@ output.insertAdjacentHTML('beforeend', '<span class="test">Movie Sort Test:</spa
 
 $(function()
 {
-    var selected;
+    var selected = 'stringReverse';
     var output;
     var input1;
     var input2;
     
     //Toggle selection
-    $('#selectors').click(event, function(event) {
-        selected = event.id;
+    $('#selectors').click(function(event) {
+        selected = event.target.id;
     });
     
     //Run selected function
     $('#execute').click(function() {
-        input1 = $('#mainInput').text();
-        input2 = $('#secondaryInput').text();
+        input1 = $('#mainInput').val();
+        input2 = $('#secondaryInput').val();
         
         switch(selected) {
                 case 'stringReverse': 
@@ -223,13 +223,13 @@ $(function()
                     output = greeting();
                     break;
                 case 'cashRegister':
-                    output = cashRegister(input1);
+                    output = JSON.stringify(cashRegister(input1), null, 2);
                     break;
                 case 'movieSort':
-                    output = movieSort(input1);
+                    output = JSON.stringify(movieSort(input1), null, 2);
                     break;
         };
         
-        $('#mainOutput').html(output);
+        $('#mainOutput').html('<pre>' + output + '</pre>');
     });
 });
