@@ -157,6 +157,8 @@ var movieSort = function(movies)
     return sorted;
 };
 
+
+/*
 //Assign a variable to the output area
 var output = document.getElementById('outputArea');
     
@@ -191,3 +193,4 @@ var items = [
 ];
 var itemSort = movieSort(items);
 output.insertAdjacentHTML('beforeend', '<span class="test">Movie Sort Test:</span> ' + '<pre>' + JSON.stringify(itemSort, null, 2) + '</pre>');
+*/
