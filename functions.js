@@ -195,30 +195,34 @@ var itemSort = movieSort(items);
 output.insertAdjacentHTML('beforeend', '<span class="test">Movie Sort Test:</span> ' + '<pre>' + JSON.stringify(itemSort, null, 2) + '</pre>');
 */
 
-$(function()
-{
+$(function() {
     var selected = 'stringReverse';
     var output;
     var input1;
     var input2;
     
+    //Bind frequently used jQuery objects
+    $mainInput = $('#mainInput');
+    $mainOutput = $('#mainOutput');
+    
     //Toggle selection
     $('#selectors').click(function(event) {
         $('#selectors button').removeClass('btn-primary');
         $(event.target).addClass('btn-primary');
+        
         selected = event.target.id;
     });
     
     //Run selected function
     $('#execute').click(function() {
-        input1 = $('#mainInput').val();
+        input1 = $mainInput.val();
         
         switch(selected) {
                 case 'stringReverse': 
                     output = stringReverse(input1);
                     break;
                 case 'stringCompare':
-                    input1 = $('#mainInput').val().split('\n');
+                    input1 = $mainInput.val().split('\n');
                     input2 = parseInt($('#secondaryInput').val());
                     output = stringCompare(input1, input2);
                     break;
@@ -229,13 +233,20 @@ $(function()
                     output = JSON.stringify(cashRegister(input1), null, 2);
                     break;
                 case 'movieSort':
-                    input1 = $('#mainInput').val().split('\n');
+                    input1 = $mainInput.val().split('\n');
                     output = JSON.stringify(movieSort(input1), null, 2);
                     break;
         };
         
+        
         $('#mainInput, #secondaryInput').val('');
         
-        $('#mainOutput').html('<pre>' + output + '</pre>');
+        $mainOutput.html('<pre>' + output + '</pre>');
+    });
+    
+    //Clear all fields (input and output)
+    $('#clearAll').click(function() {
+        $('#mainInput, #secondaryInput').val('');
+        $mainOutput.html('');
     });
 });

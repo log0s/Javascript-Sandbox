@@ -14,7 +14,10 @@
     resize: none;
 }
 
-#execute {
+#mainOutput {
+    height: 400px;
+}
+#runClear {
     position: relative;
     right: -50px;
 }
