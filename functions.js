@@ -210,14 +210,14 @@ $(function()
     //Run selected function
     $('#execute').click(function() {
         input1 = $('#mainInput').val();
-        input2 = $('#secondaryInput').val();
-        $('#mainInput, #secondaryInput').val('');
         
         switch(selected) {
                 case 'stringReverse': 
                     output = stringReverse(input1);
                     break;
                 case 'stringCompare':
+                    input1 = $('#mainInput').val().split('\n');
+                    input2 = parseInt($('#secondaryInput').val());
                     output = stringCompare(input1, input2);
                     break;
                 case 'greeting':
@@ -227,9 +227,12 @@ $(function()
                     output = JSON.stringify(cashRegister(input1), null, 2);
                     break;
                 case 'movieSort':
+                    input1 = $('#mainInput').val().split('\n');
                     output = JSON.stringify(movieSort(input1), null, 2);
                     break;
         };
+        
+        $('#mainInput, #secondaryInput').val('');
         
         $('#mainOutput').html('<pre>' + output + '</pre>');
     });

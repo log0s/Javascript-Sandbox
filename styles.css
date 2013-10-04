@@ -5,3 +5,12 @@
 .btn-group {
     margin-bottom: 40px;
 }
+
+#secondaryInput {
+    height: 54px;
+}
+
+#execute {
+    position: relative;
+    right: -50px;
+}
