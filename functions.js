@@ -194,3 +194,42 @@ var items = [
 var itemSort = movieSort(items);
 output.insertAdjacentHTML('beforeend', '<span class="test">Movie Sort Test:</span> ' + '<pre>' + JSON.stringify(itemSort, null, 2) + '</pre>');
 */
+
+$(function()
+{
+    var selected;
+    var output;
+    var input1;
+    var input2;
+    
+    //Toggle selection
+    $('#selectors').click(event, function(event) {
+        selected = event.id;
+    });
+    
+    //Run selected function
+    $('#execute').click(function() {
+        input1 = $('#mainInput').text();
+        input2 = $('#secondaryInput').text();
+        
+        switch(selected) {
+                case 'stringReverse': 
+                    output = stringReverse(input1);
+                    break;
+                case 'stringCompare':
+                    output = stringCompare(input1, input2);
+                    break;
+                case 'greeting':
+                    output = greeting();
+                    break;
+                case 'cashRegister':
+                    output = cashRegister(input1);
+                    break;
+                case 'movieSort':
+                    output = movieSort(input1);
+                    break;
+        };
+        
+        $('#mainOutput').html(output);
+    });
+});
