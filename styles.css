@@ -1,17 +1,7 @@
-h1 {
-    text-align: center;
-}
-
-#outputArea {
-    border: 1px solid black;
-    font-size: 15px;
-}
-
 #wrapper {
-    margin: 0 30% 0 30%;
+    margin: 0 20% 0 20%;
 }
 
-.test {
-    font-weight: bold;
-    font-size: 16px;
+.btn-group {
+    margin-bottom: 40px;
 }
