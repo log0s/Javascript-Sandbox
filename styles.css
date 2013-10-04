@@ -10,6 +10,10 @@
     height: 54px;
 }
 
+#mainInput {
+    resize: none;
+}
+
 #execute {
     position: relative;
     right: -50px;
