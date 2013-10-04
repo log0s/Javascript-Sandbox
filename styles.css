@@ -18,6 +18,5 @@
     height: 200px;
 }
 #runClear {
-    position: relative;
-    right: -100px;
+    float: right;
 }
