@@ -159,6 +159,8 @@ var movieSort = function(movies)
 
 
 /*
+ *Old functions to write to HTML, replaced with jQuery
+ 
 //Assign a variable to the output area
 var output = document.getElementById('outputArea');
     
@@ -193,6 +195,7 @@ var items = [
 ];
 var itemSort = movieSort(items);
 output.insertAdjacentHTML('beforeend', '<span class="test">Movie Sort Test:</span> ' + '<pre>' + JSON.stringify(itemSort, null, 2) + '</pre>');
+
 */
 
 $(function() {
@@ -202,8 +205,8 @@ $(function() {
     var input2;
     
     //Bind frequently used jQuery objects
-    $mainInput = $('#mainInput');
-    $mainOutput = $('#mainOutput');
+    var $mainInput = $('#mainInput');
+    var $mainOutput = $('#mainOutput');
     
     //Toggle selection
     $('#selectors').click(function(event) {
