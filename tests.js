@@ -5,8 +5,8 @@ describe('Reverse String', function() {
     });
 });
 
-describe('Length Compare', function() {
-    it('Should compare an array with a length and return all elements longer than that length', function() {
+describe('Filter by Word Length', function() {
+    it('Should compare an array with a length and return an array containing all elements from the original array that are longer than that length', function() {
         var array = ['test1', 'test 2', 'test three'];
         expect(stringCompare(array, 5)).to.deep.equal(['test 2', 'test three']);
     });
@@ -19,7 +19,7 @@ describe('Greeting', function() {
 });
 
 describe('Change Calculation', function() {
-    it('Should give the number of each type of currency needed to equal the inputted monetary value', function() {
+    it('Should return an object with the number of each type of bill/coin needed to equal the inputted amount of currency', function() {
         var expectedOutput = {
             Fives: 1,
             Ones: 3,
@@ -33,7 +33,7 @@ describe('Change Calculation', function() {
 });
 
 describe('Sort Movies', function() {
-    it('Should sort a given list of movies by year', function() {
+    it('Should take an array of strings containing comma-separated movie information and return an array containing the movie data split into objects', function() {
         var movies = ['The Shawshank Redemption,1994,1043071',
     'The Godfather,1972,732416',
     'The Godfather: Part II,1974,474640',
